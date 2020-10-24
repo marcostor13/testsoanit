@@ -1,0 +1,32 @@
+
+<div class="col-12 row justify-content-center pt-4">
+    <h3 class="text-color1">TEST SOAINT</h3>
+    <div class="col-12 row m-0 p-0 justify-content-end">
+        <button (click)="crud('add')" class="btn1">Agregar Distribución</button>
+    </div>
+</div>
+
+<ng-container *ngIf="distribution">
+
+    <div  class="card mt-5">
+        <p-dataView [value]="distribution.result.items" [paginator]="true" [rows]="5"  layout="list">
+    
+            <ng-template let-dis let-i="rowIndex+1" pTemplate="listItem">
+
+                <div class="col-12 p-4 row flex-column m-0">
+                    <h5><span>{{i}}. </span>{{dis.title}}</h5>
+                    <a [href]="dis._about">Información sobre la distribución</a>
+                    <a [href]="dis.accessURL">Ir a la distribución</a>
+
+                    <div class="mt-2">
+                        <button (click)="crud('edit', dis.title)" class="btn2 mr-2">Editar</button>
+                        <button (click)="crud('delete', dis.title)" class="btn2 bg-danger">Eliminar</button>
+                    </div>
+
+                   
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+
+</ng-container>

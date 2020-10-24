@@ -3,7 +3,21 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "@reducers/*": [
+        "src/app/reducers/*"
+      ],
+      "@actions/*": [
+        "src/app/actions/*"
+      ],
+      "@interfaces/*": [
+        "src/app/interfaces/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+    },
   },
   "files": [
     "src/main.ts",
